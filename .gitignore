@@ -1,2 +1,2 @@
 /data
-/onboarding-assignment/*.db
+/**/*.sqlite3

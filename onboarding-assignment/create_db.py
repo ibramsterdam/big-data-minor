@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-conn = sqlite3.connect('amazon_reviews.db')
+conn = sqlite3.connect('amazon_reviews.sqlite3')
 conn.execute("PRAGMA foreign_keys = 1")  # Enable foreign key support
 
 

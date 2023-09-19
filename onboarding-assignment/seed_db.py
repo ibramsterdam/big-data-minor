@@ -14,7 +14,7 @@ df.drop(columns=['review_time'], inplace=True)
 df['first_release_year'] = pd.to_numeric(df['first_release_year'], errors='coerce').fillna(9999).astype('int64')
 
 # connect to db
-conn = sqlite3.connect('amazon_reviews.db')
+conn = sqlite3.connect('amazon_reviews.sqlite3')
 cursor = conn.cursor()
 
 #  Seed categories
