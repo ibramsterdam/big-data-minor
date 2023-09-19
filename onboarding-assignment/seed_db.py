@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
 
-# import and clearn csv
+# import and clean csv
 df = pd.read_csv("../data/amazon_reviews_train.csv")
 df = df.rename(columns={'reviewerID': 'reviewer_id', 'amazon-id': 'amazon_id', 'helpful': 'helpful', 
                         'unixReviewTime': 'unix_review_time', 'reviewText': 'review_text', 

@@ -35,10 +35,10 @@ app.layout = html.Div([
     dcc.Dropdown(
         id='plot-type',
         options=[
-            {'label': 'Histogram', 'value': 'histogram'},
-            {'label': 'Box Plot', 'value': 'boxplot'}
+            {'label': 'Histogram (Without Outliers)', 'value': 'histogram_without_outliers'},
+            {'label': 'Box Plot (With Outliers)', 'value': 'boxplot_with_outliers'}
         ],
-        value='histogram'
+        value='histogram_without_outliers'
     ),
     dcc.Graph(id='plot')
 ])
@@ -49,9 +49,8 @@ app.layout = html.Div([
     Input('plot-type', 'value')
 )
 def update_plot(selected_variable, plot_type):
-    products_df_filtered = remove_outliers(products_df, selected_variable)
-    
-    if plot_type == 'histogram':
+    if plot_type == 'histogram_without_outliers':
+        products_df_filtered = remove_outliers(products_df, selected_variable)
         fig = px.histogram(
             products_df_filtered,
             x=selected_variable,
@@ -59,11 +58,11 @@ def update_plot(selected_variable, plot_type):
             labels={'value': selected_variable, 'count': 'Frequency'},
             nbins=50
         )
-    elif plot_type == 'boxplot':
+    elif plot_type == 'boxplot_with_outliers':
         fig = px.box(
-            products_df_filtered,
+            products_df,
             y=selected_variable,
-            title=f'{selected_variable.capitalize()} Box Plot (Without Outliers)',
+            title=f'{selected_variable.capitalize()} Box Plot (With Outliers)',
             labels={'value': selected_variable}
         )
     
