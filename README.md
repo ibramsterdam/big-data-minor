@@ -1,0 +1,3 @@
+# Summary
+
+This repository contains code and documentation for the onboarding assignment and two workshopts of the minor Big Data at the Hogeschool van Amsterdam. It was an intensive three-week program focusing on data engineering and data science. The onboarding assignment centers on sentiment analysis of Amazon product reviews, leveraging Python for data exploration, cleansing, and machine learning. Key highlights include strong classifier performance and insights from word cloud visualizations.
